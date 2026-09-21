@@ -1,0 +1,11 @@
+{
+  "chunk_size": 1000,
+  "chunk_overlap": 200,
+  "embedding_model": "all-MiniLM-L6-v2",
+  "collection_name": "course_documents",
+  "llm_name": "llama3.2",
+  "llm_model_env": "LLM_MODEL",
+  "k": 6,
+  "relevance_distance_threshold": 0.62,
+  "distance": "cosine"
+}
