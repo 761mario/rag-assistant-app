@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1481" height="896" viewBox="0 0 1481 896" role="img" aria-labelledby="title desc">
+  <title id="title">RAG Document Assistant chat interface</title>
+  <desc id="desc">Dark-themed browser view of the RAG Document Assistant with a large question input.</desc>
+  <rect width="1481" height="896" fill="#0d0f15"/>
+  <rect x="2" y="89" width="1477" height="805" rx="7" fill="#0d0f15" stroke="#48d8d1" stroke-width="3"/>
+  <rect x="4" y="91" width="1473" height="72" fill="#0d0f15"/>
+  <text x="32" y="137" fill="#aeb4c2" font-family="Arial, sans-serif" font-size="34" font-weight="700">»</text>
+  <text x="1348" y="136" fill="#f5f5f5" font-family="Arial, sans-serif" font-size="16">Deploy</text>
+  <text x="1431" y="136" fill="#f5f5f5" font-family="Arial, sans-serif" font-size="25">⋮</text>
+  <g transform="translate(307 245)">
+    <rect x="0" y="0" width="29" height="39" rx="2" fill="#a8e341"/>
+    <rect x="12" y="7" width="31" height="39" rx="2" fill="#e4477b"/>
+    <rect x="24" y="14" width="31" height="39" rx="2" fill="#43c8e9"/>
+    <rect x="1" y="38" width="30" height="4" fill="#7dce55"/>
+    <rect x="26" y="50" width="31" height="4" fill="#738ce7"/>
+  </g>
+  <text x="384" y="287" fill="#f5f5f7" font-family="Arial, sans-serif" font-size="50" font-weight="700">RAG Document Assistant</text>
+  <text x="297" y="343" fill="#92949c" font-family="Arial, sans-serif" font-size="16" font-weight="600">Ask questions about the course PDFs. Answers are grounded in the uploaded documents.</text>
+  <rect x="297" y="488" width="881" height="327" rx="25" fill="#262730"/>
+  <text x="319" y="519" fill="#b5a4a9" font-family="Arial, sans-serif" font-size="18">Ask something about your course documents...</text>
+  <text x="1138" y="800" fill="#aab0c0" font-family="Arial, sans-serif" font-size="34" font-weight="700">➤</text>
+</svg>
