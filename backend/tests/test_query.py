@@ -22,6 +22,20 @@ class FakeOllamaClient:
         return {"message": {"content": "It learns patterns [notes.pdf, page 3]."}}
 
 
+class IrrelevantCollection:
+    def query(self, **kwargs):
+        return {
+            "documents": [["Unrelated document text."]],
+            "metadatas": [[{"source": "unrelated.pdf", "page": 1}]],
+            "distances": [[0.9]],
+        }
+
+
+class FailingOllamaClient:
+    def chat(self, **kwargs):
+        raise AssertionError("Ollama must not be called without relevant evidence")
+
+
 def test_query_happy_path(monkeypatch):
     app.state.embedding_model = FakeEmbeddingModel()
     app.state.collection = FakeCollection()
@@ -39,6 +53,26 @@ def test_query_happy_path(monkeypatch):
     assert response.json() == {
         "answer": "It learns patterns [notes.pdf, page 3].",
         "sources": ["notes.pdf, pages 3-5"],
+    }
+
+
+def test_query_refuses_without_relevant_evidence():
+    app.state.embedding_model = FakeEmbeddingModel()
+    app.state.collection = IrrelevantCollection()
+    app.state.rag_config = {
+        "k": 6,
+        "relevance_distance_threshold": 0.62,
+        "llm_name": "llama3.2",
+    }
+    app.state.ollama_client = FailingOllamaClient()
+
+    client = TestClient(app)
+    response = client.post("/query", json={"question": "What is the capital of France?"})
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "answer": "I don't know based on the documents.",
+        "sources": [],
     }
 
 
